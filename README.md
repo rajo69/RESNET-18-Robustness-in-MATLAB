@@ -1,4 +1,4 @@
-# RESNET-18-Robustness-in-MATLAB# Robustness Testing of ResNet-18 Image Classifier on CIFAR-10 Against Adversarial White-Box Attacks
+# Robustness Testing of ResNet-18 Image Classifier on CIFAR-10 Against Adversarial White-Box Attacks
 
 This repository contains a series of experiments designed to evaluate the robustness of a ResNet-18 architecture trained on the CIFAR-10 dataset against adversarial white-box attacks. Specifically, the experiments focus on testing the model against Fast Gradient Sign Method (FGSM) and Projected Gradient Descent (PGD) attacks. The results highlight the trade-offs between standard accuracy on clean data and robustness to adversarial examples.
 
