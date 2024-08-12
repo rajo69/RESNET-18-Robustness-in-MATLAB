@@ -1,18 +1,22 @@
 # Robustness Testing and Defenses of ResNet-18 Image Classifier on CIFAR-10 against Adversarial White-Box Attacks
 
-This repository contains a series of experiments designed to evaluate the robustness of a ResNet-18 architecture trained on the CIFAR-10 dataset against adversarial white-box attacks. Specifically, the experiments focus on testing the model against Fast Gradient Sign Method (FGSM) and Projected Gradient Descent (PGD) attacks. The results highlight the trade-offs between standard accuracy on clean data and robustness to adversarial examples. All the necessary files are in this [MATLAB Drive](https://drive.mathworks.com/sharing/401b7564-cee0-4d19-916d-e66be3b1bb24) or [OneDrive](https://leeds365-my.sharepoint.com/:f:/g/personal/mm23rn_leeds_ac_uk/EvLciIYhjg9AihvV9u79tV4BvAdWuM3J2AQBOynNDJDizQ?e=08yEc8) under folder 'MATLAB Project'.
+This repository contains a series of experiments designed to train and evaluate the robustness of a ResNet-18 architecture trained on the CIFAR-10 dataset against adversarial white-box attacks. Specifically, the experiments focus on training the model and testing it against Fast Gradient Sign Method (FGSM) attacks. The results highlight the trade-offs between standard accuracy on clean data and robustness to adversarial examples. All the necessary files are in this [MATLAB Drive](https://drive.mathworks.com/sharing/401b7564-cee0-4d19-916d-e66be3b1bb24) or [OneDrive](https://leeds365-my.sharepoint.com/:f:/g/personal/mm23rn_leeds_ac_uk/EvLciIYhjg9AihvV9u79tV4BvAdWuM3J2AQBOynNDJDizQ?e=08yEc8) under folder 'MATLAB Project'.
+
+## Prerequisite
+
+- MATLAB R2022a
+- HPC ARC Cluster access
 
 ## Project Structure
 
-- `resnet_18_v1/`: Contains the first model trained on clean CIFAR-10 data.
-- `resnet_18_v2/`: Contains the model trained on adversarial CIFAR-10 data generated using FGSM.
-- `resnet_18_v3/`: Contains the model trained on a mix of clean and adversarial CIFAR-10 data.
-- `resnet_18_v4/`: Contains the model trained on adversarial CIFAR-10 data generated using a progressively stronger PGD attack.
-- `runmatlab_v1.sh`: Job script for running the experiment `resnet_18_v1.m` on the ARC4 HPC cluster.
-- `resnet_18_v1.m`: MATLAB script used for the first experiment.
-- `resnet_18_v2.m`: MATLAB script used for the second experiment, including adversarial data generation using FGSM.
-- `resnet_18_v3.m`: MATLAB script used for the third experiment.
-- `resnet_18_v4.m`: MATLAB script used for the fourth experiment.
+- `resnet_18_v1/Model`: Contains the first model trained on clean CIFAR-10 data.
+- `resnet_18_v2/Model`: Contains the model trained on adversarial CIFAR-10 data generated using FGSM.
+- `resnet_18_v3/Model`: Contains the model trained on a mix of clean and adversarial CIFAR-10 data.
+- `resnet_18_v4/Model`: Contains the model trained on adversarial CIFAR-10 data generated using a progressively stronger PGD attack.
+- `runmatlab_v1.sh`: Job script for running the experiment 1.
+- `runmatlab_v2.sh`: Job script for running the experiment 2.
+- `runmatlab_v3.sh`: Job script for running the experiment 3.
+- `runmatlab_v4.sh`: Job script for running the experiment 4.
 
 ## Experiments
 
