@@ -49,8 +49,8 @@ The training was performed using a white-box FGSM attack, aiming to create a mod
   - First 50 epochs on clean CIFAR-10 data.
   - Next 50 epochs on adversarial CIFAR-10 data generated using FGSM (`epsilon = 2`, `alpha = 2`, iteration step = 1).
 - **Results:**
-  - **Validation Accuracy (Clean Data):** [To be updated]
-  - **Validation Accuracy (Adversarial Data):** [To be updated]
+  - **Validation Accuracy (Clean Data):** 88.75%
+  - **Validation Accuracy (Adversarial Data):** 77.3%
 
 This experiment aims to find a middle ground where the model retains decent accuracy on both clean and adversarial data.
 
