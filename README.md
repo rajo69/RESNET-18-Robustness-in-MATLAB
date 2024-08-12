@@ -20,9 +20,10 @@ This repository contains a series of experiments designed to train and evaluate 
 
 ## Experiments
 
-### Common Parameters
+### Common Parameters & Preprocessing
 
 Throughout all the four experiments, `LearnRate = 0.01`, `miniBatchSize = 128` and `MaxEpoch = 100` has been maintaied for consistency.
+In all the experiments, training data set has been scaled up from 32x32x3 to 224x224x3, randomly shifted vertically and horizontally by upto 4 pixels and flipped using `ImageDataAugmenter` before being passed on to `miniBatchQueue`.
 
 ### Experiment 1: Training on Clean CIFAR-10 Data
 
