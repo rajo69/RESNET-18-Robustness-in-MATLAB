@@ -2,6 +2,10 @@
 
 This repository contains a series of experiments designed to train and evaluate the robustness of a ResNet-18 architecture trained on the CIFAR-10 dataset against adversarial white-box attacks. Specifically, the experiments focus on training the model and testing it against Fast Gradient Sign Method (FGSM) attacks. The results highlight the trade-offs between standard accuracy on clean data and robustness to adversarial examples. All the necessary files are in this [MATLAB Drive](https://drive.mathworks.com/sharing/401b7564-cee0-4d19-916d-e66be3b1bb24) or [OneDrive](https://leeds365-my.sharepoint.com/:f:/g/personal/mm23rn_leeds_ac_uk/EvLciIYhjg9AihvV9u79tV4BvAdWuM3J2AQBOynNDJDizQ?e=08yEc8) under folder 'MATLAB Project'.
 
+## Common Parameters
+
+Throughout all the four experiments, `LearnRate = 0.01`, `miniBatchSize = 128` and `MaxEpoch = 100` has been maintaied for consistency.
+
 ## Prerequisite
 
 - MATLAB R2022a
