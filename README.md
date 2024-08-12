@@ -103,7 +103,7 @@ To replicate the experiment results on the ARC4 HPC cluster, follow these steps:
 
 - The results of these experiments demonstrate the trade-offs between standard accuracy and adversarial robustness.
 - Training purely on adversarial data (Experiment 2) improves robustness but reduces accuracy on clean data.
-- Mixed training (Experiment 3) attempts to strike a balance but requires careful tuning of the training process.
+- Mixed training (Experiment 3) attempts to strike a balance and achieves higher score than both the previous models v1 and v2 on both normal and adversarial validation.
 - Training with progressively stronger adversarial examples (Experiment 4) aims to create a robust model against a wide range of attacks, though it may lead to lower accuracy on non-adversarial data.
 
 ## References
