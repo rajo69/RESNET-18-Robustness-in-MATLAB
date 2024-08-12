@@ -81,7 +81,8 @@ The objective was to train a model robust against a strong PGD attack, even at t
 To replicate the experiment results on the ARC4 HPC cluster, follow these steps:
 
 1. **Organize Files:**
-   - Place the job script (`runmatlab_v1.sh`) and the corresponding MATLAB script (e.g., `resnet_18_v1.m`) in the same folder. 
+   - Place the job script (`runmatlab_v1.sh`) and the corresponding MATLAB script (e.g., `resnet_18_v1.m`) in the same folder.
+   - To get normal and adversarial validation accuracy just run `nrml_validation_test.m` or `adv_validation_test.m` with job script `runtest_nrml.sh` or `runtest_adv.sh` respectively by keeping both in the same directory.
    - Ensure that the folder contains all necessary files for running the specific experiment.
 
 2. **Change Directory:**
