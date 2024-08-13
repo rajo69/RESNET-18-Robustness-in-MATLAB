@@ -58,7 +58,7 @@ The training was performed using a white-box FGSM attack, aiming to create a mod
 - **Model Name:** `resnet_18_v3.mat`
 - **Training Data:** 
   - First 50 epochs on clean CIFAR-10 data.
-  - Next 50 epochs on adversarial CIFAR-10 data generated using FGSM (`epsilon = 2`, `alpha = 2`, iteration step = 1).
+  - Next 50 epochs on adversarial CIFAR-10 data generated using FGSM (`epsilon = 2`, `alpha = epsilon`, iteration step = 1).
 - **Results:**
   - **Validation Accuracy (Clean Data):** 88.75%
   - **Validation Accuracy (Adversarial Data):** 77.3%
