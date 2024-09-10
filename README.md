@@ -62,7 +62,7 @@ In all the experiments, training data set has been scaled up from 32x32x3 to 224
 
 **Objective:** To establish a baseline accuracy of ResNet-18 on clean CIFAR-10 data.
 
-- **Model Name:** `resnet_18_v1.mat`
+- **Model Name:** [`resnet_18_v1.mat`](https://leeds365-my.sharepoint.com/:u:/g/personal/mm23rn_leeds_ac_uk/Ec1muL4D9otIpPROkZbwTLkB56tOvUrWYt-S3V5u-4LrXg?e=lghwUs)
 - **Results:**
     - Validation Accuracy on Normal Data: **91.58%**
     - Validation Accuracy under FGSM Attack: Varies between **61.31%** and **16.84%** depending on the strength of `epsilon`.
@@ -74,7 +74,7 @@ This experiment serves as a control to evaluate the impact of adversarial traini
 
 **Objective:** To test the robustness of ResNet-18 when trained entirely on adversarial examples.
 
-- **Model Name:** `resnet_18_v2.mat`
+- **Model Name:** [`resnet_18_v2.mat`](https://leeds365-my.sharepoint.com/:u:/g/personal/mm23rn_leeds_ac_uk/ERFbx5yI4mFKmK_mStWvI28BMqSotgc_k6w4KIPgjkAB-g?e=COeV7G)
 - **Training Data:** 100% adversarial data generated using FGSM (`epsilon = 2`, `alpha = 2`, iteration step = 1).
 - **Results:**
     - Validation Accuracy on Normal Data: **85.81%**
@@ -87,7 +87,7 @@ The training was performed using exclusively adversarial data (FGSM), aiming to 
 
 **Objective:** To balance normal validation accuracy with adversarial robustness by training on both clean and adversarial data.
 
-- **Model Name:** `resnet_18_v3.mat`
+- **Model Name:** [`resnet_18_v3.mat`](https://leeds365-my.sharepoint.com/:u:/g/personal/mm23rn_leeds_ac_uk/EcxcOlYXlEJAu4GSPOdTr8MBlF_a8bxboEHNEhHbL47O5g?e=39d84g)
 - **Training Data:** 
   - First 50 epochs on clean data.
   - Next 50 epochs on adversarial data generated using FGSM (`epsilon = 2`, `alpha = epsilon`, iteration step = 1).
