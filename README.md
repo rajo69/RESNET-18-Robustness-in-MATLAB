@@ -188,6 +188,10 @@ Grad-CAM output for all models
 - **Towards Deep Learning Models Resistant to Adversarial Attacks** by Aleksander Madry et al. (2018)
 - **Robustness may be at odds with accuracy** by Dimitris Tsipras et al. (2019)
 
+## Acknowledgments
+
+Special thanks to [@luisacutillo78](https://github.com/luisacutillo78) & [@mikecroucher](https://github.com/mikecroucher) for their valuable feedback, guidance and support.
+
 ## Contact
 
 For any questions or feedback, please contact [Rajarshi Nandi](https://www.linkedin.com/in/rajarshi-nandi-a77aa5214/) at [mm23rn.leeds.ac.uk](mm23rn.leeds.ac.uk).
