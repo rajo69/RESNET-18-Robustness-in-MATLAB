@@ -98,20 +98,6 @@ The training was performed using exclusively adversarial data (FGSM), aiming to 
 
 The objective was to train a model robust against a strong PGD attack, even at the cost of reduced accuracy on clean data.
 
-### Result Visaulization
-
-![norm_acc_comp](https://github.com/user-attachments/assets/29f3f85f-dc50-42e9-b2db-59c7db64fbdc)
-Validation accuracy of all models on normal data.
-
-![comparative_adversarial_accuracy](https://github.com/user-attachments/assets/6a21f674-d9b8-4e83-b897-a8bfa9faa863)
-Validation accuracy of all models on progressively stronger adversarial (FGSM) data.
-
-![pgd_attack_comparison_final](https://github.com/user-attachments/assets/852ef8c0-6e50-4df8-8502-f6be57bb73f1)
-Validation accuracy of all models on adversarial (PGD) data.
-
-![grad_cam_op_all](https://github.com/user-attachments/assets/07294c07-2cde-493b-9399-040891b48204)
-Grad-CAM output for all models
-
 ### Training the Models
 
 To train the models for each experiment, navigate to the corresponding folder and run the training script. For example, to train the model for Experiment 1 (v1), use:
@@ -164,6 +150,20 @@ epsilon = 8;  % Maximum allowed perturbation
 alpha = 0.01; % Step size for each iteration
 num_iterations = 40; % Number of iterations for PGD
 ```
+
+### Result Visaulization
+
+![norm_acc_comp](https://github.com/user-attachments/assets/29f3f85f-dc50-42e9-b2db-59c7db64fbdc)
+Validation accuracy of all models on normal data.
+
+![comparative_adversarial_accuracy](https://github.com/user-attachments/assets/6a21f674-d9b8-4e83-b897-a8bfa9faa863)
+Validation accuracy of all models on progressively stronger adversarial (FGSM) data.
+
+![pgd_attack_comparison_final](https://github.com/user-attachments/assets/852ef8c0-6e50-4df8-8502-f6be57bb73f1)
+Validation accuracy of all models on adversarial (PGD) data.
+
+![grad_cam_op_all](https://github.com/user-attachments/assets/07294c07-2cde-493b-9399-040891b48204)
+Grad-CAM output for all models
 
 ## Key Findings from the Experiments
 
