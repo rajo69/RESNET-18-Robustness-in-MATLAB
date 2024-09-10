@@ -12,7 +12,9 @@ The Projected Gradient Descent (PGD) attack is an iterative adversarial attack u
 
 ## Project Overview
 
-The project involve training and testing a ResNet-18 mode using three different methodologies: 
+The project involve training and testing a ResNet-18 mode using three different methodologies:
+
+![proj_dia](https://github.com/user-attachments/assets/d946c414-5c40-4fac-b1ff-c3f4063cece5)
 
 1. **Experiment 1 (v1)** - Model trained solely on normal, unperturbed data.
 2. **Experiment 2 (v2)** - Model trained exclusively on adversarial (FGSM) data.
