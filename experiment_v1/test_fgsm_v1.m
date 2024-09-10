@@ -11,53 +11,29 @@ augimdsVal = augmentedImageDatastore(imageSize,XValidation,TValidation);
 
 load("resnet_18_v1.mat", "net");
 
-miniBatchSize = 64;
+miniBatchSize = 512;
 
 mbqVal = minibatchqueue(augimdsVal, ...
     MiniBatchSize=miniBatchSize,...
     MiniBatchFcn=@preprocessMiniBatch,...
     MiniBatchFormat=["SSCB",""]);
 
-% FSGM;
-numFSGMIter = 1;
+epsilon = 2;
+numAdvIter = 1;
+alpha = epsilon;
 
-% PGD
-numPGDIter = 25;
+[~,YPredAdv] = adversarialExamples(net,mbqVal,epsilon,alpha,numAdvIter,classes);
+accAdv = mean(YPredAdv == TValidation);
 
 fileID = fopen('adv_acc_resnet_18_v1.txt', 'w');
 
-fprintf(fileID, 'FSGM Validation Report (Alpha = Epsilon, Iteration = 1)\n\n');
+val_acc = "Validation accuracy (FGSM attack): " + accAdv*100;
 
-fprintf(fileID, 'Epsilon\tValidation accuracy (FSGM)\n');
-
-for epsilon = 0:.5:20
-    alpha = epsilon;
-    [~,YPredAdv] = adversarialExamples(net,mbqVal,epsilon,alpha,numFSGMIter,classes);
-    accAdv = mean(YPredAdv == TValidation);
-    fprintf(fileID, '%d\t\t%d\n', epsilon, accAdv*100);
-end
-
-fprintf(fileID, '\n\n\n\n\nPGD Validation Report (Alpha = Epsilon, Iteration = 25)\n\n');
-
-fprintf(fileID, 'Epsilon\tValidation accuracy (PGD)\n');
-
-clear epsilon;
-clear alpha;
-clear YPredAdv;
-clear accAdv;
-
-for epsilon = 0:.5:20
-    alpha = epsilon;
-    [~,YPredAdv] = adversarialExamples(net,mbqVal,epsilon,alpha,numPGDIter,classes);
-    accAdv = mean(YPredAdv == TValidation);
-    fprintf(fileID, '%d\t\t%d\n', epsilon, accAdv*100);
-end
-
-fclose(fileID);
+fprintf(fileID, val_acc);
 
 quit;
 
-%----------------------------------------------------------------------------
+%--------------------------SUPPORTING FUNCTIONS---------------------------------------
 
 function gradient = modelGradientsInput(net,X,T)
 
@@ -110,6 +86,8 @@ end
 
 function [XAdv,predictions] = adversarialExamples(net,mbq,epsilon,alpha,numIter,classes)
 
+XAdv = {};
+predictions = [];
 iteration = 0;
 
 % Generate adversarial images for each mini-batch.
@@ -118,7 +96,7 @@ while hasdata(mbq)
     iteration = iteration +1;
     [X,T] = next(mbq);
 
-    initialization = "random";
+    initialization = "zero";
 
     % Generate adversarial images.
     XAdvMBQ = basicIterativeMethod(net,X,T,alpha,epsilon, ...
