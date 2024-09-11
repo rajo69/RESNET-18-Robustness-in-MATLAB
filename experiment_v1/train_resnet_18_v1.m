@@ -238,7 +238,8 @@ fclose(fileID);
 
 quit;
 
-%-------------------------------------------------------------------------------------------------------
+%--------------------------SUPPORTING FUNCTIONS---------------------------------------
+
 function [loss,gradients,state] = modelLoss(net,X,T)
 
 [YPred,state] = forward(net,X);
