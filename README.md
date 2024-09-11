@@ -4,11 +4,11 @@ This project addresses the challenge of improving neural network robustness agai
 
 ## Fast Gradient Sign Method (FGSM) Attack
 
-The Fast Gradient Sign Method (FGSM) attack is a type of adversarial attack on machine learning models, particularly neural networks. It works by adding small, carefully calculated perturbations to the input data in the direction of the gradient of the model's loss function, with respect to the input. This causes the model to misclassify the altered input, even though the perturbations are often imperceptible to humans. FGSM is widely used to evaluate the robustness of models against adversarial examples.
+The Fast Gradient Sign Method (FGSM) attack is a type of adversarial attack on machine learning models, particularly neural networks. It works by adding small, carefully calculated perturbations to the input data in the direction of the gradient of the model's loss function, with respect to the input. This causes the model to misclassify the altered input, even though the perturbations are often imperceptible to humans. FGSM is widely used to evaluate the robustness of models against adversarial examples. This attack has been used in this project for both training and testing.
 
 ## Project Gradient Descent (PGD) Attack
 
-The Projected Gradient Descent (PGD) attack is an iterative adversarial attack used to evaluate the robustness of machine learning models. It builds on the FGSM attack by applying multiple small perturbations to the input data over several iterations. After each step, the perturbed input is projected back into a constrained space to ensure the perturbation remains within a specified limit. This makes PGD a stronger and more powerful attack compared to FGSM, as it refines the adversarial example over multiple steps.
+The Projected Gradient Descent (PGD) attack is an iterative adversarial attack used to evaluate the robustness of machine learning models. It builds on the FGSM attack by applying multiple small perturbations to the input data over several iterations. After each step, the perturbed input is projected back into a constrained space to ensure the perturbation remains within a specified limit. This makes PGD a stronger and more powerful attack compared to FGSM, as it refines the adversarial example over multiple steps. This attack has been used in this project only for both testing.
 
 ## Project Overview
 
@@ -187,6 +187,8 @@ Grad-CAM output for all models
 - **Explaining and Harnessing Adversarial Examples** by Ian Goodfellow et al. (2015)
 - **Towards Deep Learning Models Resistant to Adversarial Attacks** by Aleksander Madry et al. (2018)
 - **Robustness may be at odds with accuracy** by Dimitris Tsipras et al. (2019)
+- [**Compress Image Classification Network for Deployment to Resource-Constrained Embedded Devices - MATLAB & Simulink - MathWorks United Kingdom**](https://uk.mathworks.com/help/coder/ug/deploy-compressed-network-to-resource-constrained-devices.html?searchHighlight=downloadCIFARData&s_tid=srchtitle_support_results_7_downloadCIFARData)
+- [**Train Image Classification Network Robust to Adversarial Examples - MATLAB & Simulink - MathWorks United Kingdom**](https://uk.mathworks.com/help/deeplearning/ug/train-network-robust-to-adversarial-examples.html)
 
 ## Acknowledgments
 
