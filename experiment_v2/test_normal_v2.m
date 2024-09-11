@@ -9,16 +9,16 @@ imageSize = [224 224 3];
 
 augimdsVal = augmentedImageDatastore(imageSize,XValidation,TValidation);
 
-load("resnet_18_v2.mat", "netFSGM");
+load("resnet_18_v2.mat", "netFGSM");
 
-miniBatchSize = 64;
+miniBatchSize = 512;
 
 mbqVal = minibatchqueue(augimdsVal, ...
     MiniBatchSize=miniBatchSize,...
     MiniBatchFcn=@preprocessMiniBatch,...
     MiniBatchFormat=["SSCB",""]);
 
-YPred = modelPredictions(netFSGM,mbqVal,classes);
+YPred = modelPredictions(netFGSM,mbqVal,classes);
 acc = mean(YPred == TValidation);
 
 fileID = fopen('nrml_acc_resnet_18_v2.txt', 'w');
@@ -29,7 +29,7 @@ fprintf(fileID, val_acc);
 
 quit;
 
-%----------------------------------------------------------------------------
+%--------------------------SUPPORTING FUNCTIONS---------------------------------------
 
 function [X,T] = preprocessMiniBatch(XCell,TCell)
 
@@ -102,4 +102,3 @@ function categoricalLabels = convertLabelsToCategorical(location,integerLabels)
 s = load(fullfile(location,'batches.meta.mat'));
 categoricalLabels = categorical(integerLabels,0:9,s.label_names);
 end
-
