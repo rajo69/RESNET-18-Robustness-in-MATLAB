@@ -24,7 +24,7 @@ The project involve training and testing a ResNet-18 mode using three different 
 
 ### Data
 
-The project was carried out in MATLAB R2022a and the dataset used for training and validation of is [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html).
+The project was carried out in MATLAB R2022a and the dataset used for training and validation is [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html).
 
 ### Requirements
 
@@ -182,6 +182,8 @@ Grad-CAM output for all models
 5. **Visualization Insights Through Grad-CAM**: 
    - The Grad-CAM visualizations revealed that models trained with adversarial data (Experiments 2 and 3) focused on broader and more relevant regions of the input, suggesting that adversarial training enables models to learn more robust and meaningful feature representations.
   
+**NOTE:** The detailed analysis can be found in the `Project_Report.pdf` file.
+  
 ## References
 
 - **Explaining and Harnessing Adversarial Examples** by Ian Goodfellow et al. (2015)
@@ -189,10 +191,13 @@ Grad-CAM output for all models
 - **Robustness may be at odds with accuracy** by Dimitris Tsipras et al. (2019)
 - [**Compress Image Classification Network for Deployment to Resource-Constrained Embedded Devices - MATLAB & Simulink - MathWorks United Kingdom**](https://uk.mathworks.com/help/coder/ug/deploy-compressed-network-to-resource-constrained-devices.html?searchHighlight=downloadCIFARData&s_tid=srchtitle_support_results_7_downloadCIFARData)
 - [**Train Image Classification Network Robust to Adversarial Examples - MATLAB & Simulink - MathWorks United Kingdom**](https://uk.mathworks.com/help/deeplearning/ug/train-network-robust-to-adversarial-examples.html)
+- [**Grad-CAM Reveals the Why Behind Deep Learning Decisions - MATLAB & Simulink - MathWorks United Kingdom**](https://uk.mathworks.com/help/deeplearning/ug/gradcam-explains-why.html)
 
 ## Acknowledgments
 
 Special thanks to [@luisacutillo78](https://github.com/luisacutillo78) & [@mikecroucher](https://github.com/mikecroucher) for their valuable feedback, guidance and support.
+
+This work was undertaken on ARC4, part of the High Performance Computing facilities at the University of Leeds, UK.
 
 ## Contact
 
