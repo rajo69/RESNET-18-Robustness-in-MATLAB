@@ -9,7 +9,7 @@ imageSize = [224 224 3];
 
 augimdsVal = augmentedImageDatastore(imageSize,XValidation,TValidation);
 
-load("resnet_18_v2.mat", "netFSGM");
+load("resnet_18_v2.mat", "netFGSM");
 
 miniBatchSize = 512;
 
@@ -22,7 +22,7 @@ epsilon = 8;
 numAdvIter = 30;
 alpha = epsilon;
 
-[~,YPredAdv] = adversarialExamples(netFSGM,mbqVal,epsilon,alpha,numAdvIter,classes);
+[~,YPredAdv] = adversarialExamples(netFGSM,mbqVal,epsilon,alpha,numAdvIter,classes);
 accAdv = mean(YPredAdv == TValidation);
 
 fileID = fopen('pgd_acc_resnet_18_v2.txt', 'w');
@@ -33,7 +33,7 @@ fprintf(fileID, "Epsilon: %f\t\t\t\t\t\t\t Validation accuracy (PGD): %f\n", eps
 
 quit;
 
-%----------------------------------------------------------------------------
+%--------------------------SUPPORTING FUNCTIONS---------------------------------------
 
 function gradient = modelGradientsInput(net,X,T)
 
@@ -161,4 +161,3 @@ function categoricalLabels = convertLabelsToCategorical(location,integerLabels)
 s = load(fullfile(location,'batches.meta.mat'));
 categoricalLabels = categorical(integerLabels,0:9,s.label_names);
 end
-
