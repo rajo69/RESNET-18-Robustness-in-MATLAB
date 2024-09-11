@@ -11,7 +11,7 @@ augimdsVal = augmentedImageDatastore(imageSize,XValidation,TValidation);
 
 load("resnet_18_v1.mat", "net");
 
-miniBatchSize = 64;
+miniBatchSize = 512;
 
 mbqVal = minibatchqueue(augimdsVal, ...
     MiniBatchSize=miniBatchSize,...
@@ -29,7 +29,7 @@ fprintf(fileID, val_acc);
 
 quit;
 
-%----------------------------------------------------------------------------
+%--------------------------SUPPORTING FUNCTIONS---------------------------------------
 
 function [X,T] = preprocessMiniBatch(XCell,TCell)
 
