@@ -180,8 +180,8 @@ lgraph = connectLayers(lgraph,"res5a_relu","res5b/in2");
 lgraph = connectLayers(lgraph,"bn5b_branch2b","res5b/in1");
 
 % Initialize dlnetwork
-netFSGM = dlnetwork(lgraph);
-netFSGM = initialize(netFSGM);
+netFGSM = dlnetwork(lgraph);
+netFGSM = initialize(netFGSM);
 
 numEpochs = 100;
 miniBatchSize = 128;
@@ -226,28 +226,29 @@ while epoch < numEpochs
         end
 
         % Apply adversarial perturbations to the data.
-        X = basicIterativeMethod(netFSGM,X,T,alpha,epsilon, ...
+        X = basicIterativeMethod(netFGSM,X,T,alpha,epsilon, ...
             numIter,initialization);
 
         % Evaluate the model loss, gradients, and state.
-        [loss,gradients,state] = dlfeval(@modelLoss,netFSGM,X,T);
-        netFSGM.State = state;
+        [loss,gradients,state] = dlfeval(@modelLoss,netFGSM,X,T);
+        netFGSM.State = state;
 
         % Update the network parameters using the SGDM optimizer.
-        [netFSGM,velocity] = sgdmupdate(netFSGM,gradients,velocity,learnRate);
+        [netFGSM,velocity] = sgdmupdate(netFGSM,gradients,velocity,learnRate);
 
         % Write the metrics to the text file
         fprintf(fileID, '%d\t%d\t%.4f\n', epoch, iteration, loss);
     end
 end
 
-save("resnet_18_v2.mat", "netFSGM");
+save("resnet_18_v2.mat", "netFGSM");
 
 fclose(fileID);
 
 quit;
 
-%-------------------------------------------------------------------------------------------------------
+%--------------------------SUPPORTING FUNCTIONS---------------------------------------
+
 function [loss,gradients,state] = modelLoss(net,X,T)
 
 [YPred,state] = forward(net,X);
