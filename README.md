@@ -100,7 +100,7 @@ The objective was to train a model robust against a strong PGD attack, even at t
 
 ### Training the Models
 
-To train the models for each experiment, navigate to the corresponding folder and run the training script. For example, to train the model for Experiment 1 (v1), use:
+To train the models for each experiment update `datadir` to the desired folder destination where CIFAR-10 dataset will be downloaded, navigate to the corresponding folder and run the training script. For example, to train the model for Experiment 1 (v1), use:
 
 ```matlab
 cd experiment_v1
