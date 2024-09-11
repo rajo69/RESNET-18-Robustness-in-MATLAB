@@ -33,7 +33,7 @@ fprintf(fileID, "Epsilon: %f\t\t\t\t\t\t\t Validation accuracy (PGD): %f\n", eps
 
 quit;
 
-%----------------------------------------------------------------------------
+%--------------------------SUPPORTING FUNCTIONS---------------------------------------
 
 function gradient = modelGradientsInput(net,X,T)
 
@@ -161,4 +161,3 @@ function categoricalLabels = convertLabelsToCategorical(location,integerLabels)
 s = load(fullfile(location,'batches.meta.mat'));
 categoricalLabels = categorical(integerLabels,0:9,s.label_names);
 end
-
