@@ -9,9 +9,9 @@ imageSize = [224 224 3];
 
 augimdsVal = augmentedImageDatastore(imageSize,XValidation,TValidation);
 
-load("resnet_18_v2.mat", "netFSGM");
+load("resnet_18_v2.mat", "netFGSM");
 
-miniBatchSize = 64;
+miniBatchSize = 512;
 
 mbqVal = minibatchqueue(augimdsVal, ...
     MiniBatchSize=miniBatchSize,...
@@ -22,18 +22,18 @@ epsilon = 2;
 numAdvIter = 1;
 alpha = epsilon;
 
-[~,YPredAdv] = adversarialExamples(netFSGM,mbqVal,epsilon,alpha,numAdvIter,classes);
+[~,YPredAdv] = adversarialExamples(netFGSM,mbqVal,epsilon,alpha,numAdvIter,classes);
 accAdv = mean(YPredAdv == TValidation);
 
 fileID = fopen('adv_acc_resnet_18_v2.txt', 'w');
 
-val_acc = "Validation accuracy (FSGM attack): " + accAdv*100;
+val_acc = "Validation accuracy (FGSM attack): " + accAdv*100;
 
 fprintf(fileID, val_acc);
 
 quit;
 
-%----------------------------------------------------------------------------
+%--------------------------SUPPORTING FUNCTIONS---------------------------------------
 
 function gradient = modelGradientsInput(net,X,T)
 
@@ -155,4 +155,3 @@ function categoricalLabels = convertLabelsToCategorical(location,integerLabels)
 s = load(fullfile(location,'batches.meta.mat'));
 categoricalLabels = categorical(integerLabels,0:9,s.label_names);
 end
-
