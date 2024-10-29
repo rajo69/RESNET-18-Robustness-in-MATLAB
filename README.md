@@ -22,6 +22,12 @@ The project involve training and testing a ResNet-18 mode using three different 
 
 ## Experiments
 
+### Model Architecture
+
+The model architecture is based on ResNet-18, which uses residual blocks with shortcut connections to enable efficient learning in deeper networks. Part (a) in the figure illustrates the stacked convolutional layers, with shortcut connections (red arrows) bypassing each block to prevent vanishing gradients. Part (b) shows the residual block structure, where the input \( X \) is added back to the transformed output \( F(X) \), resulting in \( F(X) + X \). This design allows for faster convergence and improved performance.
+
+![resnet_18_architecture](https://github.com/user-attachments/assets/51cc382b-ef0b-4d43-9ddd-ccb3c3144512)
+
 ### Data
 
 The project was carried out in MATLAB R2022a and the dataset used for training and validation is [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html).
@@ -62,7 +68,7 @@ In all the experiments, training data set has been scaled up from 32x32x3 to 224
 
 **Objective:** To establish a baseline accuracy of ResNet-18 on clean CIFAR-10 data.
 
-- **Model Name:** [`resnet_18_v1.mat`](https://leeds365-my.sharepoint.com/:u:/g/personal/mm23rn_leeds_ac_uk/Ec1muL4D9otIpPROkZbwTLkB56tOvUrWYt-S3V5u-4LrXg?e=lghwUs)
+- **Model Name:** [`resnet_18_v1.mat`](https://leeds365-my.sharepoint.com/:u:/g/personal/mm23rn_leeds_ac_uk/Ec1muL4D9otIpPROkZbwTLkB56tOvUrWYt-S3V5u-4LrXg?e=wVUsdf)
 - **Results:**
     - Validation Accuracy on Normal Data: **91.58%**
     - Validation Accuracy under FGSM Attack: Varies between **61.31%** and **16.84%** depending on the strength of `epsilon`.
@@ -74,7 +80,7 @@ This experiment serves as a control to evaluate the impact of adversarial traini
 
 **Objective:** To test the robustness of ResNet-18 when trained entirely on adversarial examples.
 
-- **Model Name:** [`resnet_18_v2.mat`](https://leeds365-my.sharepoint.com/:u:/g/personal/mm23rn_leeds_ac_uk/ERFbx5yI4mFKmK_mStWvI28BMqSotgc_k6w4KIPgjkAB-g?e=COeV7G)
+- **Model Name:** [`resnet_18_v2.mat`](https://leeds365-my.sharepoint.com/:u:/g/personal/mm23rn_leeds_ac_uk/ERFbx5yI4mFKmK_mStWvI28BMqSotgc_k6w4KIPgjkAB-g?e=zwPHfw)
 - **Training Data:** 100% adversarial data generated using FGSM (`epsilon = 2`, `alpha = 2`, iteration step = 1).
 - **Results:**
     - Validation Accuracy on Normal Data: **85.81%**
@@ -87,7 +93,7 @@ The training was performed using exclusively adversarial data (FGSM), aiming to 
 
 **Objective:** To balance normal validation accuracy with adversarial robustness by training on both clean and adversarial data.
 
-- **Model Name:** [`resnet_18_v3.mat`](https://leeds365-my.sharepoint.com/:u:/g/personal/mm23rn_leeds_ac_uk/EcxcOlYXlEJAu4GSPOdTr8MBlF_a8bxboEHNEhHbL47O5g?e=39d84g)
+- **Model Name:** [`resnet_18_v3.mat`](https://leeds365-my.sharepoint.com/:u:/g/personal/mm23rn_leeds_ac_uk/EcxcOlYXlEJAu4GSPOdTr8MBlF_a8bxboEHNEhHbL47O5g?e=3zpAdc)
 - **Training Data:** 
   - First 50 epochs on clean data.
   - Next 50 epochs on adversarial data generated using FGSM (`epsilon = 2`, `alpha = epsilon`, iteration step = 1).
@@ -153,16 +159,16 @@ num_iterations = 40; % Number of iterations for PGD
 
 ### Result Visaulization
 
-![norm_acc_comp](https://github.com/user-attachments/assets/29f3f85f-dc50-42e9-b2db-59c7db64fbdc)
+![norm_acc_comp](https://github.com/user-attachments/assets/bfcd9bb5-1bed-441f-b531-1c7df744829d)
 Validation accuracy of all models on normal data.
 
-![comparative_adversarial_accuracy](https://github.com/user-attachments/assets/6a21f674-d9b8-4e83-b897-a8bfa9faa863)
+![comparative_adversarial_accuracy](https://github.com/user-attachments/assets/72c09d2b-7750-4f82-82a4-06310fa8941e)
 Validation accuracy of all models on progressively stronger adversarial (FGSM) data.
 
-![pgd_attack_comparison_final](https://github.com/user-attachments/assets/852ef8c0-6e50-4df8-8502-f6be57bb73f1)
+![pgd_attack_comparison](https://github.com/user-attachments/assets/61cc394b-6fef-41a8-b3ee-8020a9de6f71)
 Validation accuracy of all models on adversarial (PGD) data.
 
-![grad_cam_op_all](https://github.com/user-attachments/assets/07294c07-2cde-493b-9399-040891b48204)
+![grad_cam_op_all](https://github.com/user-attachments/assets/333ac9d0-ab0f-4568-9561-018ea0f2ef02)
 Grad-CAM output for all models
 
 ## Key Findings from the Experiments
